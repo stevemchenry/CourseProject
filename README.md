@@ -1,4 +1,5 @@
-# Intelligent Browsing Application: Indexing, Organizing, and Querying Collections of User-Selected Web Pages (CS 410 Course Project Fall 2022)
+# CS 410 Course Project Fall 2022
+## *Intelligent Browsing Application: Indexing, Organizing, and Querying Collections of User-Selected Web Pages*
 
 ## Deliverables
 
