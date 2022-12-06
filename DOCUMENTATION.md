@@ -34,6 +34,6 @@ At any time, the user may submit a text query which performs text retrieval on t
 The software is implemented in the form of a Google Chrome Manifest V3 extension. As such, JavaScript is the programming language for both the frontend interactive components and backend processing components. HTML and CSS are used for the user interface elements. Chrome's built-in implementation of the Indexed Database API (IndexedDB) is used as the application's storage system. The extension was built and tested on Google Chrome version 108 running on Windows 10.
 
 ### 2.2 Component Organization
-The software consists of a frontend user interface component and backend data processing and storage components.
+The software consists of the frontend user interface component and the backend data processing and storage components. The frontend communicates with the backend using the Chrome extension message passing API. The implementation of each components is described in the following sections.
 
 ![Application Component Organization](./application-component-organization.png)
