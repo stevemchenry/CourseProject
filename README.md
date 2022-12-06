@@ -6,8 +6,17 @@ Group name: SteveMcHenry
 
 ## Deliverables
 
-### Project Proposal
+### Proposal
 The project proposal is located in the root of the repository as `Proposal.pdf`.
 
-### Project Progress Report
+### Progress Report
 The project progress report is located in the root of the repository as `ProgressReport.pdf`.
+
+### Code
+The project code is located in the `./extension` directory and is structured as an unpackaged Chrome extension.
+
+### Documentation
+The project documentation is available in the root of the repository as `DOCUMENTATION.md`.
+
+### Presentation
+The project presentation of the project is available at `[TODO]`.
