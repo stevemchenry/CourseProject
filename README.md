@@ -10,4 +10,4 @@ Group name: SteveMcHenry
 The project proposal is located in the root of the repository as `Proposal.pdf`.
 
 ### Project Progress Report
-The project progress report is located in the root of the repository as `ProjectReport.pdf`.
+The project progress report is located in the root of the repository as `ProgressReport.pdf`.
