@@ -57,10 +57,12 @@ popup.js contains the JavaScript used by popup.html to add interactivity to the 
 The backend provides the software's data processing and storage functionality; it services requests from the frontend and returns the requested data or outcome of the requested action. The service worker component performs data processing tasks, and the IndexedDB component performs data storage tasks.
 
 #### 2.4.1. Service Worker
-The service worker (often called a "background script" as a legacy term carried over from previous versions of Chrome extensions) provides long-running background functionality. Unlike the popup which terminates immediately when it is closed, the service worker executes in the background until the completion of its task. The service worker's script is implemented in the file named background.js. This file imports another file, tokenizer.js, which contains a class that can be instantiated with customized tokenization functionality. These files are described below.
+The service worker (often called a "background script" as a legacy term carried over from previous versions of Chrome extensions) provides long-running background functionality. Unlike the popup which terminates immediately when it is closed, the service worker executes in the background until the completion of its task. The service worker's script is implemented in the file named background.js. This script imports another file, tokenizer.js, which contains a class that can be instantiated with customized tokenization functionality. These files are described below.
 
 ##### background.js
-background.js is the functional component of the software. It receives JSON requests from frontend via the Chrome extension message massing API, processes the request, and stores and/or retrieves data from the database. The script returns a JSON response to the frontend after each request has been processed. The general format of a request object is:
+background.js is the functional component of the software. This script receives JSON requests from frontend via the Chrome extension message massing API, processes the request, and stores and/or retrieves data from the database. The script returns a JSON response to the frontend after each request has been processed.
+
+The general format of a request object is:
 ```
 {
    action: "actionName",
@@ -84,8 +86,23 @@ The general format of a response object is:
 - `reason` is an Object containing the thrown exception by the operation's failure and is present only if the operation failed
 - `response-specific-parameter` contains the response data, e.g., a document listing
 
-##### scripts/tokenizer.js
+This script imports tokenizer.js, which it uses to tokenize document text into the inverted index as well as query text with which to perform text retrieval.
 
+Documents are stored to the inverted index one at a time as the user manually adds them throughout the course of web browsing.
+
+Document retrieval is performed using term-at-a-time ranking with Okapi BM25 as the scoring function with parameter values $b=0.75, k=1.2$. These standard parameters values were found to be acceptable during testing. Additionally, if the user is searches a specific set of collections, results belonging to more than one of the specified collections are rewarded with a BM25 score multiplier of $1 + log_{10}(1 + \frac{c(d, col_{specified}) - 1}{5})$ where $c(d, col_{specified})$ is the count of specified collections to which the document belongs. This gives results which belongs to 2 specified collections an ~8% boost, a ~15% boost for 3 collections, etc. Here, it is believed that when a document belongs to multiple collections specified by the user, then that document is more likely to be relevant and should receive an additional, modest reward.
+
+Query results are returned in descending order of their final score. Each result is displayed with its result set relevance percentage. This value is equal to $\frac{score_{d}}{score_{max}}$ where $score_{d}$ is the score of the document and $score_{max}$ is the score of the highest-scoring document in the result set. This value serves as a visual indicator of the relative relevence of each result within the set. For example, if a query returns 4 documents, of which the first two are highly relevant and last two are only marginally relevant, it is helpful to see that the first two documents a relative relevance of 100% and 97%, respectively, and that the last two documents have a relative relevance of 55% and 52%, respectively.
+
+##### scripts/tokenizer.js
+tokenizer.js contains a class for a customizable string tokenizer. It provides three points of user-specified customization:
+- `formatter` is an optional user-specified function which performs user-specified formatting (e.g., character replacement or removal) on an input string and returns a formatted string
+- `tokenizer` is a required user-specified function which splits an input string into an array of tokens; it is expected that this function does not deduplicate the tokens and maintains the order in which they appeared in the original string
+- `stopwords` is an optional user-specified array of tokens which are removed from the tokenized string array (i.e., stopword removal)
+
+This file provides a default formatter, tokenizer, and stopwords that can be used effectively for general English text.
 
 #### 2.4.2. IndexedDB
-IndexedDB is a JavaScript standard NoSQL database provided by most modern browsers, including Google Chrome. Each web domain - or extension - has an isolated IndexedDB instance. The software stores its data in a database named BookmarkOrganizer.
+IndexedDB is a JavaScript standard NoSQL database provided by most modern browsers, including Google Chrome. Each web domain - or extension - has an isolated IndexedDB instance. The software stores its data in a database named BookmarkOrganizer. An ERD of the database schema is provided below.
+
+![IndexedDB Schema](./indexeddb-schema.png)
