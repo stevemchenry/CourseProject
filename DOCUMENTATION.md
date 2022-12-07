@@ -131,4 +131,4 @@ IndexedDB is a JavaScript standard NoSQL database provided by most modern browse
 - `name` (unique): The name of the collection
 
 ##### DocumentCollection: The associations of documents to collections
-- `documentID, collectionID` (composite primary key): The document ID and collection ID identifying a document-collection relation
+- `documentID`, `collectionID` (composite primary key): The document ID and collection ID identifying a document-collection relation
