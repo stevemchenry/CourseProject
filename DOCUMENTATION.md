@@ -10,8 +10,8 @@
 2. Software Implementation
    1. Implementation Overview
    2. Component Organization
-      1. Frontend
-      2. Backend
+   3. Frontend
+   4. Backend
 3. Software Installation and Use
 4. Credit and Contribution
 
