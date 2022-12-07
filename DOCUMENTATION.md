@@ -103,6 +103,32 @@ tokenizer.js contains a class for a customizable string tokenizer. It provides t
 This file provides a default formatter, tokenizer, and stopwords that can be used effectively for general English text.
 
 #### 2.4.2. IndexedDB
-IndexedDB is a JavaScript standard NoSQL database provided by most modern browsers, including Google Chrome. Each web domain - or extension - has an isolated IndexedDB instance. The software stores its data in a database named BookmarkOrganizer. An ERD of the database schema is provided below.
+IndexedDB is a JavaScript standard NoSQL database provided by most modern browsers, including Google Chrome. Each web domain - or extension - has an isolated IndexedDB instance. The software stores its data in a database named BookmarkOrganizer. An ERD of the database schema is provided below, along with a description of each entity and its fields
 
 ![IndexedDB Schema](./indexeddb-schema.png)
+
+##### Document: Metadata for an indexed document (web page)
+- `id` (primary key): An auto-incrementing integer ID for the document
+- `title`: The title of the web page
+- `url` (unique): The URL of the web page with the fragment portion (#) removed if one existed
+- `length`: The length of the web page's tokenized text
+- `faviconURL`: The URL of the webpage's favicon
+- `createdDateTime`: The timestamp that the document was entered into the index
+- `lastRetrievedDateTime`: The timestamp that the document was last retrieved (initially, the same as `createdDateTime` - recrawling/updating is left as a future enhancement)
+
+##### Dictionary: The inverted index's term dictionary
+- `id` (primary key): An auto-incrementing integer ID for the dictionary
+- `term` (unique): The term text
+- `documentFrequency`: The number of documents in which the term occurs
+- `corpusFrequency`: The number of occurrences of the term throughout the entire corpus
+
+##### Posting: The inverted index's postings table
+- `termID`, `documentID` (composite primary key): A The term ID and document ID of this posting
+- `posting`: An array of positions locations in the tokenized text at which this token occurs
+
+##### Collection: Named collections
+- `id` (primary key): An auto-incrementing integer ID for the collection
+- `name` (unique): The name of the collection
+
+##### DocumentCollection: The associations of documents to collections
+- `documentID, collectionID` (composite primary key): The document ID and collection ID identifying a document-collection relation
