@@ -185,6 +185,19 @@ To add a web page bookmark:
 2. Click the "Search" tab
 3. Enter your query terms into the text box
 4. Optionally select a different result limit from the "Show top-n" dropdown
-5. Optionally set collections filters by clicking the "Choose Collections..." button, choosing a set of collections to inclusively filter, and clicking "Apply & Close"
+5. Optionally set a collections filter by clicking the "Choose Collections..." button, choosing a set of collections to inclusively filter, and clicking "Apply & Close"
 6. Click "Search"
    - Alternatively, press the `return` key on the keyboard with the text box in focus
+
+## 4. Credit and Contribution
+
+### Steve McHeny (Captain)
+- Project concept, design, implementation, and testing
+
+### Google
+- Google Chrome browser
+- Google Chrome Extension Manifest V3 API
+- IndexedDB implementation
+
+### Ranks NL
+- [English stop word list](https://www.ranks.nl/stopwords)
