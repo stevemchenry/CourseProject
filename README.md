@@ -20,4 +20,4 @@ The project code is located in the `/extension` directory and is structured as a
 The project documentation is available in the root of the repository as `DOCUMENTATION.md`.
 
 ### Presentation
-The project presentation of the project is available at `[TODO]`.
+The project presentation of the project is available at: [https://youtu.be/cRbrEsOnaiI](https://youtu.be/cRbrEsOnaiI)
