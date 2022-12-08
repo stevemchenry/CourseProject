@@ -200,4 +200,4 @@ To add a web page bookmark:
 - IndexedDB implementation
 
 ### Ranks NL
-- [English stop word list](https://www.ranks.nl/stopwords)
+- [Default English stopwords list](https://www.ranks.nl/stopwords)
