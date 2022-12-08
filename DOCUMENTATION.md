@@ -190,13 +190,13 @@ To add a web page bookmark:
    - Alternatively, press the `return` key on the keyboard with the text box in focus
 
 ## 4. Credit and Contribution
+The following are the contributions of team members and credit to third party resources used in the project.
 
 ### Steve McHeny (Captain)
 - Project concept, design, implementation, and testing
 
 ### Google
-- Google Chrome browser (Rendering engine, JavaScript engine, IndexedDB implementation)
-- Google Chrome Extension Manifest V3 API
+- Google Chrome browser (Rendering engine, JavaScript engine, IndexedDB implementation) and extension manifest V3 API
 
 ### Ranks NL
 - [Default English stopwords list](https://www.ranks.nl/stopwords)
