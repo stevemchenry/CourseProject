@@ -195,9 +195,8 @@ To add a web page bookmark:
 - Project concept, design, implementation, and testing
 
 ### Google
-- Google Chrome browser
+- Google Chrome browser (Rendering engine, JavaScript engine, IndexedDB implementation)
 - Google Chrome Extension Manifest V3 API
-- IndexedDB implementation
 
 ### Ranks NL
 - [Default English stopwords list](https://www.ranks.nl/stopwords)
