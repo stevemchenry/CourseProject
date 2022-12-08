@@ -1,0 +1,138 @@
+/*
+Author:     Steve McHenry
+Project:    CS 410 Course Project
+Date:       Fall 2022
+*/
+
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+a {
+    text-decoration: none;
+}
+body {
+    min-width: 600px;
+    font-family: Roboto;
+    font-size: 14px;
+    margin: 7px;
+}
+#content {
+    padding: 7px;
+    background-color: #EEE;
+    border: 1px solid #555;
+    border-top: none;
+}
+#content > div > div:not(:last-of-type) {
+    margin-bottom: 10px;
+}
+.contentGroup {
+    margin-bottom: 10px;
+}
+.contentGroup:last-of-type {
+    margin-bottom: 0px;
+}
+.contentGroup > div {
+    background-color: #AAA;
+    border: 1px solid #555;
+    border-bottom: 0px;
+    padding: 5px;
+    font-size: 16px;
+    display: flex;
+}
+.contentGroup > div > span {
+    flex: auto;
+}
+.contentGroup > div > span:last-of-type:not(:only-of-type) {
+    flex: none;
+}
+.contentGroup > ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid #555;
+}
+.contentGroup > ul:empty {
+    border-bottom: 0px;
+}
+.contentGroup > ul > li {
+    padding: 2px;
+    padding-left: 5px;
+}
+.contentGroup > ul > li:nth-child(odd) {
+    background-color: #DDD;
+}
+.contentGroup > ul > li:nth-child(even) {
+    background-color: #BBB;
+}
+.contentGroup > ul > li > div:first-of-type {
+    display: flex;
+}
+.contentGroup > ul > li > div:first-of-type > div:first-of-type {
+    flex: auto;
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+}
+.contentGroup > ul > li > div:first-of-type > div:first-of-type > img {
+    margin-top: 1px;
+}
+.contentGroup > ul > li > div:first-of-type > div:first-of-type > img + span {
+    margin-left: 5px;
+}
+.contentGroup > ul > li > div:first-of-type > div:last-of-type:not(:only-of-type) {
+    flex: none;
+}
+#currentPageControls {
+    text-align: right;
+    margin-bottom: 7px;
+}
+fieldset {
+    margin: 5px;
+}
+form {
+    margin: 0px;
+}
+legend {
+    font-size: 90%;
+}
+.relevance {
+    padding: 1px;
+    font-size: 85%;
+}
+#searchForm > div {
+    display: flex;
+}
+#searchForm > div:not(:last-child) {
+    margin-bottom: 5px;
+}
+#searchForm > div > div
+{
+    flex: none;
+    width: 5px;
+}
+#searchForm > div > input[type="text"] {
+    flex: auto;
+}
+#tabControls {
+    display: flex;
+    align-items: flex-end;
+}
+#tabControls > div {
+    flex: none;
+    padding: 5px;
+    padding-bottom: 1px;
+    background-color: #CCC;
+    border: 1px solid #555;
+    cursor: pointer;
+}
+#tabControls > div:last-of-type {
+    flex: auto;
+    background-color: unset;
+    border: unset;
+    border-bottom: 1px solid #555;
+}
+.tabControlSelected {
+    padding-bottom: 5px !important;
+    background-color: #F0F0F0 !important;
+    border-top: 5px solid #555 !important;
+    border-bottom: none !important;
+}

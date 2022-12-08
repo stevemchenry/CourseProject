@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <!--
+    Author:     Steve McHenry
+    Project:    CS 410 Course Project
+    Date:       Fall 2022
+    -->
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <div id="currentPageControls">
+      <input type="button" value="Add/Remove This Page" id="buttonThisPage" disabled />
+    </div>
+    <div id="tabControls">
+      <div class="tabControlSelected" id="tabBookmarks" title="All bookmarks view">Bookmarks</div><div id="tabCollections" title="Collections view">Collections</div><div id="tabSearch" title="Search view">Search</div><div></div>
+    </div>
+    <div id="content">
+      <div id="bookmarks">
+        <div class="contentGroup">
+          <div><span>All Bookmarks</span><span id="bookmarksSummary">(Summary Statistics)</span></div>
+          <ul id="bookmarksList"></ul>
+        </div>
+      </div>
+      <div id="collections" style="display:none;">
+        <div>
+          <input type="button" value="➕ Create Collection" id="buttonCreateCollection" />
+        </div>
+        <div class="contentGroup">
+          <div><span>Collections</span><span id="collectionsSummary">(Summary Statistics)</span></div>
+          <ul id="collectionsList"></ul>
+        </div>
+      </div>
+      <div id="search" style="display:none;">
+        <div>
+          <form id="searchForm">
+            <div>
+              <input type="text" id="searchText" title="Enter your search terms" />
+              <div></div>
+              <input type="submit" value="Search" title="Submit your search criteria" />
+            </div>
+            <div>
+              <select id="searchLimit" title="Choose the maximum number of results to display">
+                <option value="5">Show top 5</option>
+                <option value="10" selected>Show top 10</option>
+                <option value="25">Show top 25</option>
+                <option value="100">Show top 100</option>
+                <option value="0">Show all</option>
+              </select>
+              <div></div>
+              <input value="Choose Collections..." type="button" id="buttonSearchCollections" />
+            </div>
+          </form>
+        </div>
+        <div id="searchResults" class="contentGroup" style="display:none;">
+          <div><span>Results</span></div>
+          <ul id="collectionSearchResults"></ul>
+        </div>
+      </div>
+    </div>
+    <script src="./popup.js" type="module"></script>
+  </body>
+</html>
