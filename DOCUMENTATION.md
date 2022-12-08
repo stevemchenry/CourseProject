@@ -13,6 +13,8 @@
    3. Frontend
    4. Backend
 3. Software Installation and Use
+   1. Installation
+   2. Use
 4. Credit and Contribution
 
 ## 1. Software Purpose and Functionality Overview
@@ -39,7 +41,7 @@ The software is implemented in the form of a Google Chrome Manifest V3 extension
 ### 2.2. Component Organization
 The software consists of the frontend user interface component and the backend service worker data processing and IndexedDB storage components. In Chrome extension terms, the frontend consists of the popup, and the backend consists of the service worker (often called a "background script" as a legacy term). The frontend engages in bidirectional communication with the backend using the Chrome extension message passing API. A visualization of the component organization is provided below. The implementation of each component and the APIs by which they communicate is described in the following sections.
 
-![Application Component Organization](./application-component-organization.png)
+![Application Component Organization](./doc-images/application-component-organization.png)
 
 ### 2.3. Frontend
 The frontend provides the software's user interface component through which the user issues actionable commands to be executed on the data maintained by the software and displays the outcome of these actions.
@@ -108,12 +110,12 @@ This file provides a default formatter, tokenizer, and stopwords that can be use
 #### 2.4.2. IndexedDB
 IndexedDB is a JavaScript standard NoSQL database provided by most modern browsers, including Google Chrome. Each web domain - or extension - has an isolated IndexedDB instance. The software stores its data in a database named BookmarkOrganizer. An ERD of the database schema is provided below, along with a description of each entity and its fields
 
-![IndexedDB Schema](./indexeddb-schema.png)
+![IndexedDB Schema](./doc-images/indexeddb-schema.png)
 
 ##### Document: Metadata for an indexed document (web page)
 - `id` (primary key): An auto-incrementing integer ID for the document
 - `title`: The title of the web page
-- `url` (unique): The URL of the web page with the fragment portion (#) removed if one existed
+- `url` (unique): The URL of the web page with the fragment portion (following a "#") removed if one existed
 - `length`: The length of the web page's tokenized text
 - `faviconURL`: The URL of the webpage's favicon
 - `createdDateTime`: The timestamp that the document was entered into the index
@@ -135,3 +137,54 @@ IndexedDB is a JavaScript standard NoSQL database provided by most modern browse
 
 ##### DocumentCollection: The associations of documents to collections
 - `documentID`, `collectionID` (composite primary key): The document ID and collection ID identifying a document-collection relation
+
+## 3. Software Installation and Use
+
+### 3.1. Installation
+The software is distributed as an unpacked Chrome extension. The extension was built and tested using Google Chrome version 108. There are no additional dependencies; simply load the extension by following the steps below which are shown in the screenshot where applicable.
+
+![IndexedDB Schema](./doc-images/install.jpg)
+
+1. In a new Chrome tab, navigate to the URL: `chrome://extensions`
+2. Enable developer mode if it is disabled
+3. Click the "Load unpacked" button
+4. Navigate the the location at which you have cloned the repository, and select the `/extension` folder in the root of the repository to load the extension
+5. Recommended: pin the extension to the Chrome toolbar for ease of use
+
+### 3.2. Use
+This section provides a brief tutorial on how to use the software.
+
+#### 3.2.1. Adding a Web Pages Bookmarks
+To add a web page bookmark:
+1. Navigate to a web page of interest
+2. Open the extension popup by clicking on its icon in the Chrome toolbar
+3. Click the "💾 Add This Page" button to add the page to the index
+
+#### 3.2.2. Removing a Web Page Bookmark
+1. Open the extension popup by clicking on its icon in the Chrome toolbar
+2. Locate the bookmark in the bookmarks list and click the "❌" button beside it
+   - Alternatively, if you are currently viewing the same page that you would like to remove, the "💾 Add This Page" will now say "❌ Remove This Page", and may be clicked to remove the bookmark to the same effect
+
+#### 3.2.3. Creating a Collection
+1. Open the extension popup by clicking on its icon in the Chrome toolbar
+2. Click the "Collections" tab in the popup
+3. Click the "➕ Create Collection" button and enter a unique name for the new collection
+
+#### 3.2.4. Renaming or Deleting a Collection
+1. Open the extension popup by clicking on its icon in the Chrome toolbar
+2. Click the "Collections" tab in the popup
+3. Locate the collection in the collection list and click the "✏️" button beside it to rename the collection or the "❌" to delete the collection
+
+#### 3.2.5. Associating a Bookmark with Collections
+1. Open the extension popup by clicking on its icon in the Chrome toolbar
+2. Locate the bookmark in the bookmarks list and click the "📚" button beside it
+3. Use the checkbox to set the bookmark's collection membership, then click "Save & Close" to save your choices and close the selection box or click "Cancel" to close without saving
+
+#### 3.2.6 Querying/Searching
+1. Open the extension popup by clicking on its icon in the Chrome toolbar
+2. Click the "Search" tab
+3. Enter your query terms into the text box
+4. Optionally select a different result limit from the "Show top-n" dropdown
+5. Optionally set collections filters by clicking the "Choose Collections..." button, choosing a set of collections to inclusively filter, and clicking "Apply & Close"
+6. Click "Search"
+   - Alternatively, press the `return` key on the keyboard with the text box in focus
