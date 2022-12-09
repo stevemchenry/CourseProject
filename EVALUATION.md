@@ -22,11 +22,11 @@ From these categories, nine topic-based collections were derived:
 
 The documents within the corpus share enough contextual overlap in different areas that the scorer has the opportunity to make mistakes, yet not so shallow or specific that queries have only clearly-defined, non-ambiguous positive results. The size of the corpus also allows a single human annotator such as myself the ability to create several relevence judgements across the entire set for multiple queries. In an ideal world, a much larger team would work annotate a much larger corpus for more accurate results.
 
-Each document was assigned to one or more collections based upon my subjective judgements of the documents' primary topic coverage.
+Each document was assigned to one or more collections based upon my subjective judgements of the documents' primary topic coverage - just as a user would assign collections.
 
-Queries were devised based upon topics within the corpus with a reasonable degree of representation; in the case of this corpus, they are related to current events, conflicts and controversies, and sports.
+Queries were devised based upon topics within the corpus with a reasonable degree of topic representation; in the case of this corpus, they are related to current events, geopolitical conflicts and controversies, and sports.
 
-Positive documents - the documents expected from the query - were also subjectively selected by me. This emphasizes a key point: when a user subjectively assigns bookmarks to collections, we expect that a query that filters on those collections will perform better than one that does not filter. Therefore, for each query, we performed the query twice. Once with no filters, and then again with the subjectively chosen most relevant filters for each query. We calculate the average precision for both runs.
+Positive documents - the documents expected from the query - were also subjectively selected by me. This emphasizes a key point: when a user subjectively assigns bookmarks to collections, we expect that a query from that same user which filters on those collections will perform better than a query which does not apply a filter. Therefore, for each query, we performed the query twice. Once with no filters, and then again with the subjectively chosen most relevant filters for each query. We calculate the average precision for both runs. The expectation is that a filtered query would perform better - or at least no worse - than it respective unfiltered query.
 
 The file named `evaluation-corpus.txt` provides the URLs of the 200 documents that were loaded into the system. In the Queries and Results section, positive relevance judgements are provided as integer IDs corresponding to the line number of the document's respective URL in the file (the first line in the file is document URL ID 1). Each query's top 10 ranking list contains the result set's document URL IDs in decending rank order.
 
