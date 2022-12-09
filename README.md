@@ -16,8 +16,10 @@ The project progress report is located in the root of the repository as `Progres
 ### Code
 The project code is located in the `/extension` directory and is structured as an unpackaged Chrome extension.
 
-### Documentation
+### Documentation and Evaluation
 The project documentation is available in the root of the repository as `DOCUMENTATION.md`.
+
+The project evaluation discussion is available in the root of the repository as `EVALUATION.md`.
 
 ### Presentation
 The project presentation of the project is available at: [https://youtu.be/cRbrEsOnaiI](https://youtu.be/cRbrEsOnaiI)
