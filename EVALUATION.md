@@ -28,7 +28,7 @@ Queries were devised based upon topics within the corpus with a reasonable degre
 
 Positive documents - the documents expected from the query - were also subjectively selected by me. This emphasizes a key point: when a user subjectively assigns bookmarks to collections, we expect that a query that filters on those collections will perform better than one that does not filter. Therefore, for each query, we performed the query twice. Once with no filters, and then again with the subjectively chosen most relevant filters for each query. We calculate the average precision for both runs.
 
-The file named `evaluation-corpus.txt` provides the URLs of the 200 documents that were loaded into the system. In the Queries and Results section, positive relevance judgements are provided as integer IDs corresponding to the line number of the document in the file (the first line in the file is line 1).
+The file named `evaluation-corpus.txt` provides the URLs of the 200 documents that were loaded into the system. In the Queries and Results section, positive relevance judgements are provided as integer IDs corresponding to the line number of the document's respective URL in the file (the first line in the file is document URL ID 1). Each query's top 10 ranking list contains the result set's document URL IDs in decending rank order.
 
 ## Queries and Results
 
