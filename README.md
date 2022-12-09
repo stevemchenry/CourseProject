@@ -22,4 +22,4 @@ The project documentation is available in the root of the repository as `DOCUMEN
 The project evaluation discussion is available in the root of the repository as `EVALUATION.md`.
 
 ### Presentation
-The project presentation of the project is available at: [https://youtu.be/cRbrEsOnaiI](https://youtu.be/cRbrEsOnaiI)
+The project presentation is available at: [https://youtu.be/cRbrEsOnaiI](https://youtu.be/cRbrEsOnaiI)
