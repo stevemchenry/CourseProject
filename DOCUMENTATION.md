@@ -160,6 +160,8 @@ To add a web page bookmark:
 2. Open the extension popup by clicking on its icon in the Chrome toolbar
 3. Click the "💾 Add This Page" button to add the page to the index
 
+NOTE: PDF documents cannot be indexed at this time. Exploration and implementation of JavaScript PDF manipulaiton libraries is left as a future enhancement opportunity.
+
 #### 3.2.2. Removing a Web Page Bookmark
 1. Open the extension popup by clicking on its icon in the Chrome toolbar
 2. Locate the bookmark in the bookmarks list and click the "❌" button beside it
